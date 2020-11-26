@@ -174,7 +174,7 @@ client.on('message', (message) => {
             .setColor('RANDOM')
             .setTitle(`${username} information`)
             .setAuthor(tag, avatar)
-            .setDescription('Some description here')
+            .setDescription(`uid : ${id}`)
             .setThumbnail(avatar)
             .addFields(
                 { name: 'Date Created', value: `${day} ${date}-${month}-${year}`, inline: false },
@@ -187,6 +187,30 @@ client.on('message', (message) => {
             
 
             console.log(`created at : ${day} ${date}-${month}-${year} ${nick}`);
+        }
+
+        //moderation kick command
+        if (command === 'kick') {
+            if (!message.member.hasPermission('ADMINISTRATOR') || !message.member.hasPermission('KICK_MEMBERS')) return message.reply('you dont have permission to kick this member!');
+            const user = message.mentions.users.first();
+            if (user) {
+              const member = message.guild.member(user);
+              if (member) {
+                member
+                  .kick(args[1])
+                  .then(() => {
+                    message.reply(`Successfully kicked ${user}`);
+                  })
+                  .catch(err => {
+                    message.reply('you cant kick admin or moderator');
+                    console.error(err);
+                  });
+              } else {
+                message.reply("That user isn't in this guild!");
+              }
+            } else {
+              message.reply("You didn't mention the user to kick!");
+            }
         }
     }
 });
