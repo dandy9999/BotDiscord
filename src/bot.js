@@ -158,11 +158,11 @@ client.on('message', (message) => {
             var month = indoMonth(dateCreated.getMonth());
             var date = dateCreated.getDate();
             var day = indoDay(dateCreated.getDay());
-            //get formated date Joined need fix
-            var yearj = dateCreated.getFullYear();
-            var monthj = indoMonth(dateCreated.getMonth());
-            var datej = dateCreated.getDate();
-            var dayj = indoDay(dateCreated.getDay());
+            //get formated date Joined
+            var yearj = dateJoin.getFullYear();
+            var monthj = indoMonth(dateJoin.getMonth());
+            var datej = dateJoin.getDate();
+            var dayj = indoDay(dateJoin.getDay());
 
             var nick = memGuild.nickname;
             var id = user.id;
