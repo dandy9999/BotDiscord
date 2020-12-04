@@ -186,10 +186,11 @@ client.on('message', (message) => {
             message.channel.send(info);
             
 
-            console.log(`created at : ${day} ${date}-${month}-${year} ${nick}`);
+            //console.log(`created at : ${day} ${date}-${month}-${year} ${nick}`);
         }
 
         //moderation kick command
+        /*
         if (command === 'kick') {
             if (!message.member.hasPermission('ADMINISTRATOR') || !message.member.hasPermission('KICK_MEMBERS')) return message.reply('you dont have permission to kick this member!');
             const user = message.mentions.users.first();
@@ -212,6 +213,7 @@ client.on('message', (message) => {
               message.reply("You didn't mention the user to kick!");
             }
         }
+        */
     }
 });
 
